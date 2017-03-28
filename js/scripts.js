@@ -4,7 +4,6 @@ $(document).ready(function(){
     event.preventDefault();
     var userInput = $("#stringInput").val().split("");
     var vowels = ["a","e","i","o","u"];
-    console.log(userInput);
 
     for(var i=0; i<userInput.length; i++){
       vowels.forEach(function(vowel){
@@ -12,10 +11,17 @@ $(document).ready(function(){
           userInput.splice(i,1,"-");
         };
       });
-      console.log(userInput[i]);
     }
 
+    var wordPuzzle = userInput.join("");
 
+    $("form").hide();
+    $(".puzzle").show();
+    $(".puzzleOutput").text(wordPuzzle);
+
+    $("#reload").click(function(){
+      location.reload();
+    });
 
   });
 
